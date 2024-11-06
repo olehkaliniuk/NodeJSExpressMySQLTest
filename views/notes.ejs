@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <title>Notes</title>
+</head>
+<body>
+    <h1 class="logo">Notes</h1>
+
+    <div class="showcontainer">
+
+    <!-- show by ID -->
+    <form action="/" method="GET">
+        <input type="number" id="noteId" name="id" placeholder="Search by ID" required>
+        <button type="submit">Get Note</button>
+    </form>
+
+    <!-- show all -->
+    <form action="/" method="GET">
+        <button type="submit">Show All Notes</button>
+    </form>
+
+
+    <!-- delete all -->
+    <form action="/notes/delete" method="POST">
+        <button type="submit">Delete All</button>
+    </form>
+
+      <!-- create new one -->
+      <form action="/notes/create" method="POST">
+        <input type="text" id="title" name="title" placeholder="title" required>
+        <input type="text" id="contents" name="contents" placeholder="contents" required>
+        <button type="submit">Create New Note</button>
+    </form>
+
+    </div>
+
+   
+
+
+
+
+    <ul class="listcont">
+        <% if (selectedNote) { %>
+            <!-- <h2>Selected Note</h2> -->
+            <li class="listt">
+                <p><%= selectedNote.title %></p>
+                <p><%= selectedNote.contents %></p>
+                <p class="idd">ID : <%= selectedNote.id %></p>
+                <form action="/notes/delete/<%= selectedNote.id %>" method="POST">
+                    <div class="lbtn">
+                    <button type="submit">Delete</button>
+                </div>
+                </form>
+            </li>
+        <% } else if (notes.length > 0) { %>
+            
+            <!-- <h2>All Notes</h2> -->
+            <% notes.forEach(note => { %>
+                <li class="listt">
+                    
+                    <p><%= note.title %></p>
+                    <p><%= note.contents %></p>
+              
+                    <p class="idd">ID : <%= note.id %></p>
+                    <form action="/notes/delete/<%= note.id %>" method="POST">
+                        <div class="lbtn">
+                        <button type="submit">Delete</button>
+                    </div>
+                    </form>
+                </li>
+            <% }) %>
+        <% } else { %>
+            <h2 class="nonotes">No notes available</h2>
+        <% } %>
+    </ul>
+</body>
+</html>
