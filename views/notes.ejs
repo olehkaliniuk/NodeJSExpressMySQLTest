@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
     <title>Notes</title>
 </head>
 <body>
@@ -22,7 +22,6 @@
         <button type="submit">Show All Notes</button>
     </form>
 
-
     <!-- delete all -->
     <form action="/notes/delete" method="POST">
         <button type="submit">Delete All</button>
@@ -36,17 +35,13 @@
     </form>
 
     </div>
-
-   
-
-
-
-
     <ul class="listcont">
         <% if (selectedNote) { %>
-            <!-- <h2>Selected Note</h2> -->
+            <!-- Selected Note> -->
             <li class="listt">
-                <p><%= selectedNote.title %></p>
+                <a href="/notes/<%= selectedNote.id %>">       
+                    <p><%= selectedNote.title %></p>
+                </a>
                 <p><%= selectedNote.contents %></p>
                 <p class="idd">ID : <%= selectedNote.id %></p>
                 <form action="/notes/delete/<%= selectedNote.id %>" method="POST">
@@ -55,15 +50,14 @@
                 </div>
                 </form>
             </li>
-        <% } else if (notes.length > 0) { %>
-            
-            <!-- <h2>All Notes</h2> -->
+        <% } else if (notes.length > 0) { %> 
+             <!-- All Notes -->
             <% notes.forEach(note => { %>
                 <li class="listt">
-                    
+                <a href="/notes/<%= note.id %>">
                     <p><%= note.title %></p>
+                </a>
                     <p><%= note.contents %></p>
-              
                     <p class="idd">ID : <%= note.id %></p>
                     <form action="/notes/delete/<%= note.id %>" method="POST">
                         <div class="lbtn">

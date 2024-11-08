@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/notesid.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="logo">Notes</h1>
+
+    <div class="idcontainer">
+    <h1>ID: <%= selectedNote.id %></h1>
+    <h1>Title: <%= selectedNote.title %></h1>
+    <h1>Content: <%= selectedNote.contents %></h1>
+    
+    <h1>Time: <%= selectedNote.created %></h1>
+        <% if (showForm) { %>
+            <form class="formadd" action="/notes/<%= selectedNote.id %>/descriptions" method="POST">
+                <input type="text" id="descriptions" name="descriptions" placeholder="Description" required>
+                <button type="submit" value="Add Description">Add</button>
+            </form>
+        <% } else { %>
+            <h1 class="deskkk">Description: <%= selectedNote.descriptions %></h1>
+        <% } %>
+
+
+       
+
+        <% if (showImgForm) { %>
+
+            <form class="formimg" action="/notes/<%= selectedNote.id %>/img" method="POST" enctype="multipart/form-data">
+                <div class="imgTitle">Upload Photo</div>
+                <input type="file" name="sampleFile" accept="image/*">
+                <button type="submit">Add Photo</button>
+            </form>
+
+          <% } else { %>
+
+            <% if (imagePath) { %>
+                <div>
+                  <h1 class="imgTitle">Image:</h1>
+                  <div class="imgggg" >
+                  <img src="<%= imagePath %>" alt="Note Image" />
+                </div>
+                </div>
+              <% } else { %>
+                <p>No image available for this note.</p>
+              <% } %>
+            
+        <% } %>
+          
+        <!-- <h1>Content: <%= selectedNote.image_path %></h1> -->
+
+        <div class="backlink">
+            <a  href="/">Go Back</a>
+        </div>        
+    </div>
+
+</body>
+</html>

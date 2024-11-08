@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "Inter", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+.logo{
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+}
+
+.idcontainer{
+    padding: 20px;
+}
+
+.idcontainer h1{
+    color: #4b4b4b;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #4b4b4b;
+}
+
+.deskkk{
+    color: #4b4b4b;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #4b4b4b;
+}
+
+.formadd input{
+font-weight: 500;
+font-size: 34px;
+border: none;
+padding-bottom: 2.5px;
+    border-bottom: 1px solid #4b4b4b;
+}
+.formadd button{
+    font-weight: 500;
+    font-size: 34px;
+    border: none;
+    color: #fff;
+    background-color: black;
+    padding: 2.5px;
+    
+}
+
+.backlink{
+    padding-top: 50px;
+}
+.backlink a{
+    color: #4b4b4b;
+    font-size: 20px;
+}
+
+
+.formimg{
+    display: flex;
+    align-items: center;  
+}
+
+
+.formimg input{
+    font-weight: 500;
+    font-size: 34px;
+    border: none;
+    padding-bottom: 1.7px;
+    border-bottom: 1px solid #4b4b4b;
+    color: #a7a7a7;
+   
+
+}
+
+.formimg button{
+    font-weight: 500;
+    font-size: 34px;
+    border: none;
+    color: #fff;
+    background-color: black;
+    padding: 2.5px;
+}
+
+
+.imgTitle{
+    font-weight: 500;
+    font-size: 34px;
+    color: #a7a7a7;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #4b4b4b;
+    
+}
+
+.imgggg{
+    padding-top: 20px;
+    
+}
+
+.imgggg img{
+    border-radius: 15px;
+    
+}

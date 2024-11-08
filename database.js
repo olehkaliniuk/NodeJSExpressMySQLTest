@@ -1,5 +1,6 @@
 import mysql from 'mysql2'
 
+
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -26,6 +27,8 @@ export async function createNote(title, contents) {
     return getNote(id)
 }
 
+
+
 // const result = await createNote('newNote333', 'newwwwwTextworks')
 // console.log(result)
 
@@ -40,6 +43,34 @@ export async function deleteAllNotes() {
     return result
 }
 
+
+
+export async function addDescription(descriptions, id) {
+    const [result] = await connection.query(
+        `UPDATE notes SET descriptions = ? WHERE id = ?`,
+        [descriptions, id]
+    );
+    
+    if (result.affectedRows > 0) {
+        return getNote(id); 
+    } else {
+        throw new Error();
+    }
+}
+
+
+
+//add Photo
+export async function addImagePathToNoteById(noteId, image_path) {
+    const [result] = await connection.query(
+        `UPDATE notes SET image_path = ? WHERE id = ?`,
+        [image_path, noteId]
+    );
+
+    if (result.affectedRows > 0) {
+        return getNote(noteId); 
+    } 
+}
 
 
 
